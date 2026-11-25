@@ -87,7 +87,7 @@ if(form){
       form.reset();
       btn.classList.add("ok");btn.textContent="Request sent \u2713";
       setTimeout(()=>{btn.classList.remove("ok");btn.textContent="Send request"},3500);
-      say("Thank you! Your request was sent. I will contact you on Discord to confirm the Steam card value, and I will send you the finished project as a zip when it is ready.");
+      say("Thank you! Your request was sent. We will contact you on Discord to confirm the Steam card value, and we will send you the finished project as a zip when it is ready.");
     }catch(err){say("Your request could not be sent. Please try again in a moment.",true)}
     btn.disabled=false;
   });
