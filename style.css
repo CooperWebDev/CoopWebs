@@ -247,8 +247,8 @@ nav a.on:not(.btn)::after{transform:scaleX(1)}
 .pagehead h1{font-size:clamp(46px,7vw,84px);margin-bottom:14px}
 .pagehead .lead{margin-bottom:0}
 .home-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.home-links a.card{text-decoration:none;display:block}
-.home-links .more{margin-top:18px;color:var(--red2);font-weight:600;font-size:15px;display:inline-flex;gap:8px;align-items:center}
+.home-links a.card{text-decoration:none;display:flex;flex-direction:column}
+.home-links .more{margin-top:auto;padding-top:18px;color:var(--red2);font-weight:600;font-size:15px;display:inline-flex;gap:8px;align-items:center}
 .home-links .more::after{content:"\2192";transition:transform .3s var(--ease)}
 .home-links a:hover .more::after{transform:translateX(5px)}
 .ctaband{text-align:center}
