@@ -37,6 +37,7 @@
   <ul id="menu">
     <li><a href="../home/">Home</a></li>
     <li><a href="../services/">What we build</a></li>
+    <li><a href="../rank-boost/">Rank boosting</a></li>
     <li class="dd">
       <button class="ddbtn" aria-haspopup="true" aria-expanded="false">Order <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
       <ul class="menu">
@@ -51,13 +52,14 @@
 <section id="order" class="pagehead" style="padding-bottom:100px"><div class="wrap order">
   <div class="rv">
     <div class="eyebrow">Order</div><h2>Request your project</h2>
-    <p class="lead" style="margin-bottom:22px">Tell us what you want built and pick the Steam card tier that fits.</p>
-    <ul><li>Discord bots for your server or community</li><li>Websites, always one page with all your sections</li><li>Twitch bots for your stream and chat</li><li>Price set by difficulty: $5, $10, $25, $50 or $100</li><li>Delivered to you as a zip file</li></ul>
+    <p class="lead" style="margin-bottom:22px">Tell us what you need and pick the Steam card tier or rank that fits.</p>
+    <ul><li>Discord bots for your server or community</li><li>Websites, always one page with all your sections</li><li>Twitch bots for your stream and chat</li><li>Price set by difficulty: $5, $10, $25, $50 or $100</li><li>Delivered to you as a zip file</li><li>Rocket League rank boosting, priced in euro per rank</li></ul>
   </div>
   <form id="of" class="rv" style="--i:2" novalidate>
     <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
     <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. We will message you there.</p>
-    <fieldset style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier</legend>
+    <label>What do you need?<select name="type" id="ty"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option value="Rocket League rank boost">Rocket League rank boost</option><option>Something else</option></select></label>
+    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier</legend>
       <div class="pick">
         <label><input type="radio" name="tier" value="Not sure" checked><span>?<small>Not sure</small></span></label>
         <label><input type="radio" name="tier" value="$5"><span>$5<small>Starter</small></span></label>
@@ -67,17 +69,25 @@
         <label><input type="radio" name="tier" value="$100"><span>$100<small>Premium</small></span></label>
       </div>
     </fieldset>
-    <label>What do you need?<select name="type"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option>Something else</option></select></label>
-    <label>Describe what you need<textarea name="msg" required maxlength="1000" placeholder="What should it do? For a bot, list the commands or features you want. For a website, list the sections and any style you like."></textarea></label>
+    <div id="rk" class="rk" hidden>
+      <div class="two"><label>Current rank<select name="from" id="rkFrom"></select></label><label>Target rank<select name="to" id="rkTo"></select></label></div>
+      <div class="two"><label>Platform<select name="platform"><option>Steam</option><option>Epic Games</option><option>PlayStation</option><option>Xbox</option><option>Nintendo Switch</option></select></label><label>Playlist<select name="playlist"><option>Ranked 2v2 Duel/Doubles</option><option>Ranked 3v3 Standard</option><option>Ranked 1v1 Duel</option></select></label></div>
+      <label class="chk"><input type="checkbox" name="rew" id="rkRew" checked><span>Include Rank Rewards (+&euro;5 for each new rank reached)</span></label>
+      <div class="total"><span>Estimated price</span><b id="rkTotal">&euro;0</b></div>
+      <div class="notice"><b>We need access to your account.</b> We play on your own account to reach your target rank, and <b>we always give your account back</b> when we are done. Do not type your password here. We will ask for the login on Discord after we agree the order.</div>
+      <label class="chk"><input type="checkbox" name="consent" id="rkOk"><span>I understand that Copper will log in to and play on my account, and that it will be returned to me when the boost is finished.</span></label>
+    </div>
+    <label id="msgl">Describe what you need<textarea id="msg" name="msg" required maxlength="1000" placeholder="What should it do? For a bot, list the commands or features you want. For a website, list the sections and any style you like."></textarea></label>
     <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <div class="notice"><b>Payment is by Steam gift card.</b> We will confirm the final value with you on Discord before you send anything. Your finished project is delivered as a zip file.</div>
+    <div class="notice" id="payn"><b>Payment is by Steam gift card.</b> We will confirm the final value with you on Discord before you send anything. Your finished project is delivered as a zip file.</div>
     <button class="btn" type="submit" id="sb">Send request</button>
-    <p class="fine" id="note" role="status">Sending this form posts your name, Discord ID, tier and request to our private Discord server so we can reply to you.</p>
+    <p class="fine" id="note" role="status">Sending this form shares your name, Discord ID and request with us on our private Discord server so we can reply to you.</p>
   </form>
 </div></section>
 
 
-<footer><div class="wrap"><span>© <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Discord bots, websites and Twitch bots. Orders are handled on Discord.</span></div></footer>
+<footer><div class="wrap"><span>© <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Discord bots, websites, Twitch bots and Rocket League rank boosting. Orders are handled on Discord.</span></div></footer>
+<script src="../rank.js"></script>
 <script src="../main.js"></script>
 </body>
 </html>

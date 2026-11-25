@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rocket League rank boosting | Copper</title>
+<meta name="description" content="Rocket League rank boosting from Copper. Pick your current and target rank, see the price in euro. We play on your account and always give it back.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../favicon.svg" color="#e24b3f">
+<meta name="theme-color" content="#e24b3f">
+<link rel="canonical" href="https://coppernetwork.vercel.app/rank-boost/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Copper">
+<meta property="og:url" content="https://coppernetwork.vercel.app/rank-boost/">
+<meta property="og:title" content="Rocket League rank boosting | Copper">
+<meta property="og:description" content="Rocket League rank boosting from Copper. Pick your current and target rank, see the price in euro.">
+<meta property="og:image" content="https://coppernetwork.vercel.app/og-copper-2.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="bar"></div>
+<nav id="nav"><div class="wrap">
+  <a class="logo" href="../home/"><span>COPPER<b>.</b></span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  <ul id="menu">
+    <li><a href="../home/">Home</a></li>
+    <li><a href="../services/">What we build</a></li>
+    <li><a href="../rank-boost/" class="on" aria-current="page">Rank boosting</a></li>
+    <li class="dd">
+      <button class="ddbtn" aria-haspopup="true" aria-expanded="false">Order <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+      <ul class="menu">
+        <li><a href="../pricing/">Pricing<small>Steam card tiers, $5 to $100</small></a></li>
+        <li><a href="../process/">How it works<small>Four simple steps</small></a></li>
+        <li><a href="../order/" class="go">Request a project</a></li>
+      </ul>
+    </li>
+  </ul>
+</div></nav>
+
+<section class="pagehead"><div class="wrap"><div class="eyebrow">Rocket League</div><h1>Rank boosting</h1><p class="lead">Pick the rank you are at and the rank you want. We climb it for you and you see the exact price in euro before you order.</p></div></section>
+
+<section id="rank"><div class="wrap">
+  <div class="access rv">
+    <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+    <div>
+      <h3>We need access to your account</h3>
+      <p>To boost your rank we play on <b>your own account</b>, so we need to log in to it. <b>We always give your account back</b> as soon as the boost is finished.</p>
+      <ul>
+        <li>You never put a password in the order form. We ask for the login on Discord after we agree the order.</li>
+        <li>We only play the games needed to reach your target rank.</li>
+        <li>When we are done, we tell you on Discord and hand the account back to you.</li>
+        <li>We recommend changing your password once the boost is finished.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="calc rv">
+    <h2>Price calculator</h2>
+    <div class="two">
+      <label>Current rank<select id="rkFrom"></select></label>
+      <label>Target rank<select id="rkTo"></select></label>
+    </div>
+    <label class="chk"><input type="checkbox" id="rkRew" checked><span>Include Rank Rewards (+€5 every time you reach a new rank: Silver I, Gold I, Platinum I, Diamond I, Champion I and Grand Champion I)</span></label>
+    <div class="total"><span>Total</span><b id="rkTotal">€0</b></div>
+    <div id="rkBreak" class="break" aria-live="polite"></div>
+    <a class="btn" id="rkGo" href="../order/?service=rank">Order this boost</a>
+  </div>
+
+  <div class="eyebrow rv" style="margin-top:70px">Price list</div>
+  <h2 class="rv" style="--i:1">Every step, one price</h2>
+  <p class="lead rv" style="--i:2">Each step to the next division costs €5. Reaching a new rank adds €5 for the Rank Rewards. The last step, Champion IV to Grand Champion I, costs €10.</p>
+  <div class="ladder" id="ladder"></div>
+</div></section>
+
+<footer><div class="wrap"><span>© <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Discord bots, websites, Twitch bots and Rocket League rank boosting. Orders are handled on Discord.</span></div></footer>
+<script src="../rank.js"></script>
+<script src="../main.js"></script>
+<script>
+(function(){
+  const $=s=>document.querySelector(s),R=RL.RANKS,eur=n=>"\u20ac"+n;
+  const from=$("#rkFrom"),to=$("#rkTo"),rew=$("#rkRew");
+  from.innerHTML=R.slice(0,-1).map(r=>"<option>"+r+"</option>").join("");
+  to.innerHTML=R.slice(1).map(r=>"<option>"+r+"</option>").join("");
+  const p=new URLSearchParams(location.search);
+  if(R.includes(p.get("from"))&&R.indexOf(p.get("from"))<R.length-1)from.value=p.get("from");
+  if(R.includes(p.get("to"))&&R.indexOf(p.get("to"))>0)to.value=p.get("to");
+  else to.value=R[Math.min(R.indexOf(from.value)+4,R.length-1)];
+  function fix(){ // target must be above current
+    if(R.indexOf(to.value)<=R.indexOf(from.value))to.value=R[R.indexOf(from.value)+1];
+  }
+  function draw(){
+    fix();
+    const q=RL.quote(from.value,to.value,rew.checked);
+    $("#rkTotal").textContent=eur(q.total);
+    $("#rkBreak").innerHTML=q.steps.map(s=>"<div><span>"+s.from+" \u2192 "+s.to+"</span><span>"+eur(s.price)+(s.reward?" <em>+"+eur(s.reward)+" rewards</em>":"")+"</span></div>").join("");
+    $("#rkGo").href="../order/?service=rank&from="+encodeURIComponent(from.value)+"&to="+encodeURIComponent(to.value)+"&rew="+(rew.checked?1:0);
+  }
+  [from,to,rew].forEach(e=>e.addEventListener("change",draw));draw();
+  // price list
+  $("#ladder").innerHTML=RL.TIERS.concat(["Grand Champion"]).map(t=>{
+    const rows=[];
+    R.forEach((r,i)=>{if(i<R.length-1&&(R[i].indexOf(t)===0)){
+      const pr=RL.stepPrice(i),rw=RL.stepReward(i);
+      rows.push("<div><span>"+r+" \u2192 "+R[i+1]+"</span><span>"+eur(pr)+(rw?" <em>+"+eur(rw)+" rewards</em>":"")+"</span></div>");
+    }});
+    if(!rows.length)return "";
+    return "<article class=\"card rv\"><h3>"+t+"</h3>"+rows.join("")+"</article>";
+  }).join("");
+  document.querySelectorAll("#ladder .rv").forEach(el=>el.classList.add("in"));
+})();
+</script>
+</body>
+</html>
