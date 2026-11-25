@@ -6,243 +6,36 @@
 <title>Cooper, Discord Bots, Websites and Twitch Bots</title>
 <meta name="description" content="Hi, I am Cooper. I build Discord bots, websites and Twitch bots. Pay with a Steam gift card: $5, $10, $25, $50 or $100 depending on how big the build is.">
 <meta name="theme-color" content="#0b1017">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="favicon.svg" color="#e24b3f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cooper">
+<meta property="og:title" content="Cooper, Discord Bots, Websites and Twitch Bots">
+<meta property="og:description" content="Hi, I am Cooper. I build Discord bots, websites and Twitch bots. Pay with a Steam gift card: $5, $10, $25, $50 or $100 depending on how big the build is.">
+<meta property="og:image" content="favicon.svg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
 <script>document.documentElement.classList.add("js")</script>
-<style>
-:root{
-  --bg:#0b1017;--bg2:#121a26;--bg3:#182232;--line:#243044;--text:#eaeff6;--muted:#8a97ab;
-  --red:#e24b3f;--red2:#ff6b5e;--steel:#b9c4d6;
-  --head:"Barlow Condensed","Arial Narrow",sans-serif;--body:"Barlow",system-ui,sans-serif;
-  --ease:cubic-bezier(.2,.7,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:var(--head);margin:0;line-height:1.02}
-h2{font-size:clamp(36px,5vw,54px);margin-bottom:12px}
-.eyebrow{color:var(--red);font:600 14px var(--body);letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--red);transform-origin:left;animation:grow 1s var(--ease) both}
-.lead{color:var(--muted);max-width:58ch;margin:0 0 42px}
-
-/* progress + nav */
-#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--red),var(--red2));transform:scaleX(0);transform-origin:left;z-index:30}
-nav{position:sticky;top:0;z-index:20;background:rgba(11,16,23,.7);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
-nav.stuck{border-color:var(--line);background:rgba(11,16,23,.92)}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-.logo{font:700 26px var(--head);text-decoration:none;letter-spacing:.02em}
-.logo b{color:var(--red);display:inline-block;animation:blink 2.4s ease-in-out infinite}
-nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;align-items:center}
-nav a{text-decoration:none;color:var(--steel);font-size:15px;font-weight:500;position:relative}
-nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
-nav a:not(.btn):hover,nav a.on{color:var(--text)}
-nav a:not(.btn):hover::after,nav a.on::after{transform:scaleX(1)}
-
-/* buttons */
-.btn{position:relative;overflow:hidden;display:inline-block;background:var(--red);color:#fff;border:1px solid var(--red);border-radius:8px;padding:14px 28px;font:600 16px var(--body);text-decoration:none;cursor:pointer;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
-.btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s var(--ease)}
-.btn:hover{background:var(--red2);transform:translateY(-3px);box-shadow:0 12px 28px -10px rgba(226,75,63,.7)}
-.btn:hover::after{left:130%}
-.btn:active{transform:translateY(0) scale(.98)}
-.btn.ghost{background:transparent;border-color:var(--line);color:var(--text)}
-.btn.ghost:hover{border-color:var(--steel);box-shadow:none}
-nav .btn{padding:9px 18px;font-size:14px;color:#fff}
-
-/* hero */
-.hero{padding:120px 0 100px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;isolation:isolate}
-.hero .grid-bg{position:absolute;inset:0;z-index:-2;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.35;mask-image:radial-gradient(ellipse at 30% 40%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 30% 40%,#000 10%,transparent 70%);animation:pan 16s linear infinite}
-.orb{position:absolute;border-radius:50%;filter:blur(70px);z-index:-1;opacity:.5}
-.orb.a{width:380px;height:380px;background:rgba(226,75,63,.5);top:-120px;right:-60px;animation:float 11s ease-in-out infinite}
-.orb.b{width:300px;height:300px;background:rgba(80,120,200,.35);bottom:-120px;left:30%;animation:float 14s ease-in-out infinite reverse}
-.chips{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.chip{position:absolute;font:700 34px var(--head);color:var(--steel);border:1px solid var(--line);background:rgba(18,26,38,.7);backdrop-filter:blur(4px);border-radius:12px;padding:8px 18px;animation:drift 9s ease-in-out infinite}
-.chip small{display:block;font:500 11px var(--body);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.chip:nth-child(1){right:7%;top:16%;animation-delay:0s}
-.chip:nth-child(2){right:22%;top:46%;animation-delay:-2s;font-size:28px}
-.chip:nth-child(3){right:5%;top:62%;animation-delay:-4s;font-size:40px;color:var(--red2)}
-.chip:nth-child(4){right:30%;top:12%;animation-delay:-6s;font-size:24px}
-.chip:nth-child(5){right:16%;top:78%;animation-delay:-3s;font-size:30px}
-.hero h1{font-size:clamp(54px,9vw,112px);font-weight:700;letter-spacing:-.5px}
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
-.hero h1 .ln>span{display:block;transform:translateY(105%);animation:rise 1s var(--ease) forwards}
-.hero h1 .ln:nth-child(2)>span{animation-delay:.15s}
-.shine{background:linear-gradient(100deg,var(--steel) 20%,#fff 40%,var(--red2) 60%,var(--steel) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 5s linear infinite}
-.hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:26px 0 34px}
-.hero .eyebrow,.hero p,.hero .cta,.hero .stats{opacity:0;animation:fadeup .9s var(--ease) forwards}
-.hero .eyebrow{animation-delay:.05s}.hero p{animation-delay:.45s}.hero .cta{animation-delay:.6s}.hero .stats{animation-delay:.8s}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:flex;gap:50px;flex-wrap:wrap;margin-top:64px}
-.stats b{font:700 46px/1 var(--head);display:block}
-.stats span{color:var(--muted);font-size:15px}
-
-/* marquee */
-.marq{border-bottom:1px solid var(--line);overflow:hidden;background:var(--bg2);padding:16px 0}
-.track{display:flex;gap:46px;width:max-content;animation:marq 32s linear infinite}
-.marq:hover .track{animation-play-state:paused}
-.track span{font:700 22px var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--steel);white-space:nowrap;display:flex;align-items:center;gap:46px}
-.track span::after{content:"";width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
-
-section{padding:100px 0;border-bottom:1px solid var(--line)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-
-/* cards with cursor spotlight */
-.card{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:30px;overflow:hidden;transition:transform .4s var(--ease),border-color .3s}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(226,75,63,.16),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.card:hover{transform:translateY(-6px);border-color:#34445e}
-.card:hover::before{opacity:1}
-.card h3{font-size:30px;margin-bottom:8px}
-.card p{margin:0;color:var(--muted);font-size:15.5px}
-.ico{width:46px;height:46px;border-radius:12px;background:var(--bg3);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:18px;transition:transform .5s var(--spring),background .3s}
-.card:hover .ico{transform:rotate(-8deg) scale(1.12);background:var(--red)}
-.ico svg{width:22px;height:22px;stroke:var(--steel);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
-.card:hover .ico svg{stroke:#fff}
-.num{font:700 15px var(--head);color:var(--red);letter-spacing:.1em;margin-bottom:14px;display:block}
-
-/* what I build */
-.builds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
-.builds .card{padding:34px 30px;display:flex;flex-direction:column}
-.builds .card h3{font-size:36px}
-.builds .card p{margin-bottom:18px}
-.builds .tags{margin:auto 0 0}
-.builds .tags span{font-size:13px;padding:3px 11px}
-.builds .ico{width:54px;height:54px}
-.builds .ico svg{width:26px;height:26px}
-@media(max-width:900px){.builds{grid-template-columns:1fr}}
-
-/* pricing */
-.tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;perspective:1200px}
-.tier{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px 22px 24px;display:flex;flex-direction:column;overflow:hidden;transform-style:preserve-3d;transition:transform .25s var(--ease),border-color .3s,box-shadow .3s;will-change:transform}
-.tier::before{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(226,75,63,.2),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
-.tier:hover{border-color:var(--red);box-shadow:0 24px 50px -24px rgba(226,75,63,.55)}
-.tier:hover::before{opacity:1}
-.tier.pop{border-color:var(--red);background:linear-gradient(180deg,#1b2231,var(--bg2))}
-.badge{position:absolute;top:14px;right:-34px;transform:rotate(38deg);background:var(--red);color:#fff;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;padding:4px 40px}
-.tier .name{font:600 13px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.tier .price{font:700 64px/1 var(--head);margin:8px 0 2px;display:flex;align-items:flex-start;gap:2px}
-.tier .price sup{font-size:26px;margin-top:6px;color:var(--red)}
-.tier .card-type{font-size:13px;color:var(--muted);margin-bottom:16px}
-.meter{display:flex;gap:4px;margin:0 0 18px}
-.meter i{flex:1;height:6px;border-radius:3px;background:var(--bg3);position:relative;overflow:hidden}
-.meter i::after{content:"";position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
-.in .meter i.f::after{transform:scaleX(1)}
-.in .meter i:nth-child(2)::after{transition-delay:.1s}.in .meter i:nth-child(3)::after{transition-delay:.2s}
-.in .meter i:nth-child(4)::after{transition-delay:.3s}.in .meter i:nth-child(5)::after{transition-delay:.4s}
-.tier ul{list-style:none;padding:0;margin:0 0 20px;font-size:14.5px;color:var(--steel);flex:1}
-.tier li{padding:5px 0 5px 22px;position:relative;line-height:1.45}
-.tier li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:5px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
-.tier .effort{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-bottom:14px}
-.tier .btn{text-align:center;padding:11px 14px;font-size:15px}
-.steamnote{margin-top:22px;display:flex;gap:14px;align-items:center;border:1px dashed var(--line);border-radius:12px;padding:18px 22px;color:var(--muted);font-size:15.5px}
-.steamnote b{color:var(--text)}
-.steamnote svg{flex:none;width:28px;height:28px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-
-/* process */
-.steps{position:relative}
-.steps::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--line)}
-.steps .line{position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 1.6s var(--ease) .2s}
-.in.steps .line{transform:scaleX(1)}
-.steps .grid{padding-top:22px}
-
-/* showcase */
-.work{display:grid;grid-template-columns:1.2fr 1fr;background:var(--bg2);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.shot{padding:30px;background:radial-gradient(circle at 20% 0%,#1d2839,var(--bg));border-right:1px solid var(--line);display:flex;align-items:center}
-.browser{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);overflow:hidden;box-shadow:0 30px 60px -30px #000;animation:bob 6s ease-in-out infinite}
-.browser .top{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--bg2)}
-.browser .top i{width:9px;height:9px;border-radius:50%;background:var(--line)}
-.browser .top i:first-child{background:var(--red)}
-.browser .body{padding:16px;display:grid;gap:10px}
-.sk{border-radius:6px;background:linear-gradient(90deg,#1b2638 30%,#26344b 50%,#1b2638 70%);background-size:300% 100%;animation:sk 2.4s linear infinite}
-.sk.h{height:70px}.sk.s{height:12px;width:70%}.sk.s2{height:12px;width:45%}
-.sk.r{background:var(--red);height:30px;width:38%;animation:pulse 2s ease-in-out infinite}
-.sk.row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:none;animation:none;height:54px}
-.sk.row i{border-radius:6px;background:linear-gradient(90deg,#1b2638 30%,#26344b 50%,#1b2638 70%);background-size:300% 100%;animation:sk 2.4s linear infinite}
-.sk.row i:nth-child(2){animation-delay:.3s}.sk.row i:nth-child(3){animation-delay:.6s}
-.info{padding:40px}
-.info h3{font-size:42px;margin-bottom:12px}
-.info p{color:var(--muted);margin:0 0 18px}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
-.tags span{border:1px solid var(--line);border-radius:20px;padding:4px 13px;font-size:14px;color:var(--steel);transition:border-color .25s,transform .25s var(--spring)}
-.tags span:hover{border-color:var(--red);transform:translateY(-3px)}
-
-/* order */
-.order{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start}
-.order ul{list-style:none;padding:0;margin:0}
-.order li{padding:11px 0 11px 32px;position:relative;border-bottom:1px solid var(--line)}
-.order li::before{content:"";position:absolute;left:0;top:20px;width:12px;height:12px;background:var(--red);clip-path:polygon(50% 0,100% 100%,0 100%)}
-form{display:grid;gap:16px}
-label,.lbl{font-size:14px;color:var(--steel);display:grid;gap:7px;font-weight:500}
-input,select,textarea{font:inherit;color:var(--text);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:13px;width:100%;transition:border-color .25s,box-shadow .25s,background .25s}
-textarea{min-height:120px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(226,75,63,.15);background:#151f2d}
-input[readonly]{color:var(--muted)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pick{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-.pick label{display:block;position:relative}
-.pick input{position:absolute;opacity:0;inset:0;cursor:pointer}
-.pick span{display:block;text-align:center;border:1px solid var(--line);background:var(--bg2);border-radius:10px;padding:12px 4px;font:700 22px var(--head);color:var(--steel);transition:transform .3s var(--spring),border-color .25s,background .25s,color .25s}
-.pick span small{display:block;font:500 10px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;transition:color .25s}
-.pick label:hover span{transform:translateY(-3px);border-color:var(--steel)}
-.pick input:checked+span{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-3px) scale(1.04)}
-.pick input:checked+span small{color:rgba(255,255,255,.85)}
-.pick input:focus-visible+span{outline:2px solid var(--steel);outline-offset:2px}
-.notice{border:1px solid var(--red);background:rgba(226,75,63,.08);border-radius:10px;padding:14px 16px;font-size:15px;color:var(--text)}
-.fine{font-size:13.5px;color:var(--muted);margin:0}
-button.btn:disabled{opacity:.7;cursor:wait}
-button.btn.ok{background:#2fa36b;border-color:#2fa36b;animation:pop .5s var(--spring)}
-
-footer{padding:40px 0;color:var(--muted);font-size:15px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
-
-/* scroll reveal */
-.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
-.js .rv.in{opacity:1;transform:none}
-.js .tier.rv.in{transition:transform .25s var(--ease),border-color .3s,box-shadow .3s,opacity .9s var(--ease)}
-
-@keyframes rise{to{transform:none}}
-@keyframes fadeup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes shimmer{to{background-position:-250% 0}}
-@keyframes float{50%{transform:translate(-30px,40px) scale(1.12)}}
-@keyframes drift{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-22px) rotate(3deg)}}
-@keyframes pan{to{background-position:56px 56px}}
-@keyframes marq{to{transform:translateX(-50%)}}
-@keyframes blink{50%{opacity:.35}}
-@keyframes bob{50%{transform:translateY(-10px)}}
-@keyframes sk{to{background-position:-300% 0}}
-@keyframes pulse{50%{opacity:.6;transform:scale(.96)}}
-@keyframes pop{0%{transform:scale(.9)}100%{transform:scale(1)}}
-
-@media(max-width:980px){.tiers{grid-template-columns:repeat(2,1fr)}.chips{display:none}}
-@media(max-width:820px){
-  .work,.order{grid-template-columns:1fr}
-  .shot{border-right:0;border-bottom:1px solid var(--line)}
-  nav ul li:not(:last-child){display:none}
-  .two{grid-template-columns:1fr}
-  .pick{grid-template-columns:repeat(3,1fr)}
-  section{padding:76px 0}
-}
-@media(max-width:520px){.tiers{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  .js .rv{opacity:1;transform:none}
-  .hero h1 .ln>span{transform:none}
-  .hero .eyebrow,.hero p,.hero .cta,.hero .stats{opacity:1}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="bar"></div>
 <nav id="nav"><div class="wrap">
-  <a class="logo" href="#top">COOPER<b>.</b></a>
-  <ul>
-    <li><a href="#services">What I build</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#order" class="btn">Order now</a></li>
+  <a class="logo" href="index.html"><img src="favicon.svg" alt="" width="30" height="30"><span>COOPER<b>.</b></span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  <ul id="menu">
+    <li><a href="index.html" class="on" aria-current="page">Home</a></li>
+    <li><a href="services.html">What I build</a></li>
+    <li class="dd">
+      <button class="ddbtn" aria-haspopup="true" aria-expanded="false">Order <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+      <ul class="menu">
+        <li><a href="pricing.html">Pricing<small>Steam card tiers, $5 to $100</small></a></li>
+        <li><a href="process.html">How it works<small>Four simple steps</small></a></li>
+        <li><a href="order.html" class="go">Request a project</a></li>
+      </ul>
+    </li>
   </ul>
 </div></nav>
 
@@ -258,8 +51,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <div class="eyebrow">Hi, I am Cooper</div>
     <h1><span class="ln"><span>Discord bots, websites</span></span><span class="ln"><span class="shine">and Twitch bots.</span></span></h1>
-    <p>I build custom Discord bots, clean one page websites and Twitch bots for creators, communities and small projects. Pay with a Steam card: the bigger the build, the higher the card, from $5 to $100.</p>
-    <div class="cta"><a class="btn" href="#pricing">See the prices</a><a class="btn ghost" href="#order">Order a project</a></div>
+    <p>I build custom Discord bots, clean websites and Twitch bots for creators, communities and small projects. Pay with a Steam card: the bigger the build, the higher the card, from $5 to $100.</p>
+    <div class="cta"><a class="btn" href="pricing.html">See the prices</a><a class="btn ghost" href="order.html">Order a project</a></div>
     <div class="stats">
       <div><b data-count="5">0</b><span>Steam card tiers</span></div>
       <div><b data-count="100" data-suffix="%">0</b><span>Custom built</span></div>
@@ -273,227 +66,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <span>Discord bots</span><span>Websites</span><span>Twitch bots</span><span>Custom commands</span><span>Live data</span><span>Custom built</span><span>Delivered as a zip</span>
 </div></div>
 
-<section id="services"><div class="wrap">
-  <div class="eyebrow rv">What I build</div><h2 class="rv" style="--i:1">Discord bots, websites and Twitch bots</h2>
-  <p class="lead rv" style="--i:2">Three things, all custom built to fit you. No templates and no page builders.</p>
-  <div class="builds">
-    <div class="card rv" style="--i:0"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16.5h6"/><circle cx="12" cy="3.5" r="1"/></svg></div><h3>Discord bots</h3><p>Custom bots for your server: slash commands, moderation, welcome messages, roles, tickets, games and more.</p><div class="tags"><span>Slash commands</span><span>Moderation</span><span>Roles</span><span>Tickets</span></div></div>
-    <div class="card rv" style="--i:1"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M8 14l-2 2 2 2M16 14l2 2-2 2"/></svg></div><h3>Websites</h3><p>Clean, fast, responsive one page websites for people, communities and small projects, with smooth animations.</p><div class="tags"><span>One page</span><span>Responsive</span><span>Animated</span><span>Live data</span></div></div>
-    <div class="card rv" style="--i:2"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 3h16v12l-4 4h-4l-3 2v-2H4z"/><path d="M12 8v3M16 8v3"/></svg></div><h3>Twitch bots</h3><p>Chat bots for your stream: custom commands, timers, alerts, chat games and moderation to keep chat running smoothly.</p><div class="tags"><span>Chat commands</span><span>Timers</span><span>Alerts</span><span>Moderation</span></div></div>
+<section id="explore"><div class="wrap">
+  <div class="eyebrow rv">Explore</div><h2 class="rv" style="--i:1">Everything in one place</h2>
+  <p class="lead rv" style="--i:2">Have a look around, then send me your idea.</p>
+  <div class="home-links">
+    <a class="card rv" style="--i:0" href="services.html"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16.5h6"/><circle cx="12" cy="3.5" r="1"/></svg></div><h3>What I build</h3><p>Discord bots, websites and Twitch bots, all custom built.</p><span class="more">See the services</span></a>
+    <a class="card rv" style="--i:1" href="pricing.html"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><h3>Pricing</h3><p>Pay with a Steam card from $5 to $100, depending on the build.</p><span class="more">See the tiers</span></a>
+    <a class="card rv" style="--i:2" href="process.html"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>How it works</h3><p>Four simple steps from request to a finished zip file.</p><span class="more">See the steps</span></a>
+    <a class="card rv" style="--i:3" href="order.html"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Order now</h3><p>Tell me what you want built and pick a tier.</p><span class="more">Request a project</span></a>
   </div>
-  <div class="grid">
-    <div class="card rv" style="--i:0"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.3L20 9l-4.4 3.9L17 19l-5-3-5 3 1.4-6.1L4 9l5.8-.7z"/></svg></div><h3>Custom design</h3><p>A look and feel that fits your brand, server or stream.</p></div>
-    <div class="card rv" style="--i:1"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h3>Works everywhere</h3><p>Sites work on phones, tablets and desktops, and bots are tested before delivery.</p></div>
-    <div class="card rv" style="--i:2"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Fast and clean code</h3><p>Lightweight, tidy code that is quick to run and easy to build on.</p></div>
-    <div class="card rv" style="--i:3"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Live data</h3><p>Need stats, feeds or a search tool? I can connect your bot or site to an API.</p></div>
-  </div>
-</div></section>
-
-<section id="pricing"><div class="wrap">
-  <div class="eyebrow rv">Pricing</div><h2 class="rv" style="--i:1">Pay with a Steam card</h2>
-  <p class="lead rv" style="--i:2">Small and simple projects cost a small card. Bigger bots and sites with more features, animations or live data cost more because they take more of my time. Pick the tier that fits, and I will confirm it with you before I start.</p>
-  <div class="tiers">
-    <article class="tier rv" style="--i:0">
-      <div class="name">Starter</div>
-      <div class="price"><sup>$</sup>5</div>
-      <div class="card-type">Steam gift card</div>
-      <div class="meter" aria-label="Effort 1 of 5"><i class="f"></i><i></i><i></i><i></i><i></i></div>
-      <ul><li>A simple one screen site</li><li>Or a bot with a few commands</li><li>Clean and quick to build</li></ul>
-      <div class="effort">Quick build</div>
-      <a class="btn ghost" href="#order" data-tier="5">Choose $5</a>
-    </article>
-    <article class="tier rv" style="--i:1">
-      <div class="name">Basic</div>
-      <div class="price"><sup>$</sup>10</div>
-      <div class="card-type">Steam gift card</div>
-      <div class="meter" aria-label="Effort 2 of 5"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div>
-      <ul><li>Site with up to 4 sections</li><li>Or a bot with basic features</li><li>Light animations</li></ul>
-      <div class="effort">Short build</div>
-      <a class="btn ghost" href="#order" data-tier="10">Choose $10</a>
-    </article>
-    <article class="tier pop rv" style="--i:2">
-      <span class="badge">Popular</span>
-      <div class="name">Standard</div>
-      <div class="price"><sup>$</sup>25</div>
-      <div class="card-type">Steam gift card</div>
-      <div class="meter" aria-label="Effort 3 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div>
-      <ul><li>Fully custom site design</li><li>Or a bot with many commands</li><li>Rich animations</li></ul>
-      <div class="effort">Medium build</div>
-      <a class="btn" href="#order" data-tier="25">Choose $25</a>
-    </article>
-    <article class="tier rv" style="--i:3">
-      <div class="name">Advanced</div>
-      <div class="price"><sup>$</sup>50</div>
-      <div class="card-type">Steam gift card</div>
-      <div class="meter" aria-label="Effort 4 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
-      <ul><li>Complex sites and layouts</li><li>Or a bot with stored data</li><li>Interactive features</li></ul>
-      <div class="effort">Long build</div>
-      <a class="btn ghost" href="#order" data-tier="50">Choose $50</a>
-    </article>
-    <article class="tier rv" style="--i:4">
-      <div class="name">Premium</div>
-      <div class="price"><sup>$</sup>100</div>
-      <div class="card-type">Steam gift card</div>
-      <div class="meter" aria-label="Effort 5 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
-      <ul><li>API and live data</li><li>Large, full featured bots</li><li>Big, detailed projects</li></ul>
-      <div class="effort">Major build</div>
-      <a class="btn ghost" href="#order" data-tier="100">Choose $100</a>
-    </article>
-  </div>
-  <div class="steamnote rv">
-    <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
-    <span><b>Not sure which tier?</b> Choose "Not sure" in the form and describe your idea. I will tell you the fair card value on Discord. You send the card code after we agree, and then I start building.</span>
-  </div>
-</div></section>
-
-<section id="work"><div class="wrap">
-  <div class="eyebrow rv">The result</div><h2 class="rv" style="--i:1">Custom built, delivered as a zip</h2>
-  <p class="lead rv" style="--i:2">Your finished bot or site is yours. I send you the complete project as a zip file.</p>
-  <div class="work rv">
-    <div class="shot"><div class="browser" aria-hidden="true">
-      <div class="top"><i></i><i></i><i></i></div>
-      <div class="body"><div class="sk h"></div><div class="sk s"></div><div class="sk s2"></div><div class="sk r"></div><div class="sk row"><i></i><i></i><i></i></div></div>
-    </div></div>
-    <div class="info">
-      <h3>Bots and sites that just work.</h3>
-      <p>Whether it is a Discord bot for your server, a Twitch bot for your chat or a one page website for your project, you get clean code and a result that is quick and simple for your community to use.</p>
-      <div class="tags"><span>Discord bots</span><span>Twitch bots</span><span>Websites</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>APIs</span></div>
-      <a class="btn" href="#order">Start your project</a>
-    </div>
-  </div>
-</div></section>
-
-<section id="process"><div class="wrap">
-  <div class="eyebrow rv">How it works</div><h2 class="rv" style="--i:1">Four simple steps</h2>
-  <p class="lead rv" style="--i:2">No contracts and no jargon.</p>
-  <div class="steps rv"><div class="line"></div>
-    <div class="grid">
-      <div class="card"><span class="num">01</span><h3>Send your request</h3><p>Fill in the form below with what you need (a Discord bot, website or Twitch bot), pick a tier and share any examples you like.</p></div>
-      <div class="card"><span class="num">02</span><h3>Agree the card</h3><p>I reply on Discord and confirm the Steam card value that matches the work.</p></div>
-      <div class="card"><span class="num">03</span><h3>I design and build</h3><p>Once I get the card code I build it as fast as I can. Quality is never rushed.</p></div>
-      <div class="card"><span class="num">04</span><h3>You launch</h3><p>I send you the finished project as a zip file on Discord, ready to use.</p></div>
-    </div>
-  </div>
-</div></section>
-
-<section id="order"><div class="wrap order">
-  <div class="rv">
-    <div class="eyebrow">Order</div><h2>Request your project</h2>
-    <p class="lead" style="margin-bottom:22px">Tell me what you want built and pick the Steam card tier that fits.</p>
-    <ul><li>Discord bots for your server or community</li><li>Websites, always one page with all your sections</li><li>Twitch bots for your stream and chat</li><li>Price set by difficulty: $5, $10, $25, $50 or $100</li><li>Delivered to you as a zip file</li></ul>
-  </div>
-  <form id="of" class="rv" style="--i:2" novalidate>
-    <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
-    <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. I will message you there.</p>
-    <fieldset style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier</legend>
-      <div class="pick">
-        <label><input type="radio" name="tier" value="Not sure" checked><span>?<small>Not sure</small></span></label>
-        <label><input type="radio" name="tier" value="$5"><span>$5<small>Starter</small></span></label>
-        <label><input type="radio" name="tier" value="$10"><span>$10<small>Basic</small></span></label>
-        <label><input type="radio" name="tier" value="$25"><span>$25<small>Standard</small></span></label>
-        <label><input type="radio" name="tier" value="$50"><span>$50<small>Advanced</small></span></label>
-        <label><input type="radio" name="tier" value="$100"><span>$100<small>Premium</small></span></label>
-      </div>
-    </fieldset>
-    <label>What do you need?<select name="type"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option>Something else</option></select></label>
-    <label>Describe what you need<textarea name="msg" required maxlength="1000" placeholder="What should it do? For a bot, list the commands or features you want. For a website, list the sections and any style you like."></textarea></label>
-    <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <div class="notice"><b>Payment is by Steam gift card.</b> I will confirm the final value with you on Discord before you send anything. Your finished project is delivered as a zip file.</div>
-    <button class="btn" type="submit" id="sb">Send request</button>
-    <p class="fine" id="note" role="status">Sending this form posts your name, Discord ID, tier and request to my private Discord server so I can reply to you.</p>
-  </form>
 </div></section>
 
 <footer><div class="wrap"><span>© <span id="y"></span> Cooper. All rights reserved.</span><span>Discord bots, websites and Twitch bots. Orders are handled on Discord.</span></div></footer>
-
-<script>
-// Orders are posted to this Discord webhook. Note: anyone who views the page source can see it.
-const WEBHOOK="https://discord.com/api/webhooks/1571970972049997854/V7KitnlCHx0R2gTBOyFprzlxKoIDHKV6w72MkoBOSqtzD7UeI6Uww1w0SG4hMYphVOU2";
-const COOLDOWN=60*1000; // short anti spam pause between orders
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
-$("#y").textContent=new Date().getFullYear();
-
-/* scroll progress + sticky nav */
-const bar=$("#bar"),nav=$("#nav");
-const onScroll=()=>{
-  const h=document.documentElement,max=h.scrollHeight-h.clientHeight;
-  bar.style.transform="scaleX("+(max>0?h.scrollTop/max:0)+")";
-  nav.classList.toggle("stuck",h.scrollTop>10);
-};
-addEventListener("scroll",onScroll,{passive:true});onScroll();
-
-/* reveal on scroll */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15,rootMargin:"0px 0px -6% 0px"});
-$$(".rv").forEach(el=>io.observe(el));
-
-/* count up numbers */
-const count=el=>{
-  const to=+el.dataset.count,suf=el.dataset.suffix||"";
-  if(calm){el.textContent=to+suf;return}
-  const t0=performance.now(),d=1400;
-  const tick=t=>{const p=Math.min((t-t0)/d,1),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v+suf;if(p<1)requestAnimationFrame(tick)};
-  requestAnimationFrame(tick);
-};
-setTimeout(()=>$$("[data-count]").forEach(count),700);
-
-/* active nav link */
-const links=$$("nav a:not(.btn)");
-const so=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting)links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id));
-}),{rootMargin:"-45% 0px -50% 0px"});
-["services","pricing","process"].forEach(id=>so.observe(document.getElementById(id)));
-
-/* cursor spotlight on cards, 3D tilt on tiers */
-$$(".card,.tier").forEach(el=>{
-  el.addEventListener("pointermove",e=>{
-    const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
-    el.style.setProperty("--mx",x+"px");el.style.setProperty("--my",y+"px");
-    if(!calm&&el.classList.contains("tier")&&e.pointerType==="mouse"){
-      const rx=((y/r.height)-.5)*-8,ry=((x/r.width)-.5)*8;
-      el.style.transform="translateY(-6px) rotateX("+rx+"deg) rotateY("+ry+"deg)";
-    }
-  });
-  el.addEventListener("pointerleave",()=>{if(el.classList.contains("tier"))el.style.transform=""});
-});
-
-/* tier buttons preselect the form */
-$$("[data-tier]").forEach(a=>a.addEventListener("click",()=>{
-  const r=$('input[name="tier"][value="$'+a.dataset.tier+'"]');if(r)r.checked=true;
-}));
-
-/* order form */
-const form=$("#of"),note=$("#note"),btn=$("#sb");
-const say=(t,err)=>{note.textContent=t;note.style.color=err?"#ff8b84":""};
-const last=()=>{try{return Number(localStorage.getItem("lastOrder"))||0}catch{return 0}};
-form.addEventListener("submit",async e=>{
-  e.preventDefault();
-  const f=new FormData(form);
-  if(f.get("website"))return;
-  const name=String(f.get("name")||"").trim(),id=String(f.get("discord")||"").trim(),msg=String(f.get("msg")||"").trim();
-  if(!name||!msg){say("Please fill in your name and describe what you need.",true);return}
-  if(!/^[0-9]{17,20}$/.test(id)){say("Your Discord ID must be the 17 to 20 digit number, not your username.",true);return}
-  if(Date.now()-last()<COOLDOWN){say("Please wait a minute before sending another request.",true);return}
-  btn.disabled=true;say("Sending your request...");
-  try{
-    const r=await fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
-      username:"Website orders",
-      allowed_mentions:{parse:[]},
-      embeds:[{title:"New order: "+String(f.get("type")).slice(0,60),color:0xe24b3f,timestamp:new Date().toISOString(),fields:[
-        {name:"Name",value:name.slice(0,200)},
-        {name:"Discord ID",value:"`"+id+"` (<@"+id+">)"},
-        {name:"Steam card tier",value:String(f.get("tier")).slice(0,50)},
-        {name:"Project type",value:String(f.get("type")).slice(0,100)},
-        {name:"Request",value:msg.slice(0,1000)}]}]})});
-    if(!r.ok)throw new Error(r.status);
-    try{localStorage.setItem("lastOrder",String(Date.now()))}catch{}
-    form.reset();
-    btn.classList.add("ok");btn.textContent="Request sent ✓";
-    setTimeout(()=>{btn.classList.remove("ok");btn.textContent="Send request"},3500);
-    say("Thank you! Your request was sent. I will contact you on Discord to confirm the Steam card value, and I will send you the finished project as a zip when it is ready.");
-  }catch(err){say("Your request could not be sent. Please try again in a moment.",true)}
-  btn.disabled=false;
-});
-</script>
+<script src="main.js"></script>
 </body>
 </html>
