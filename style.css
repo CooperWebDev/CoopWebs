@@ -58,6 +58,13 @@ nav .btn{padding:9px 18px;font-size:14px;color:#fff}
 .stats span{color:var(--muted);font-size:15px}
 
 
+/* marquee */
+.marq{border-bottom:1px solid var(--line);overflow:hidden;background:var(--bg2);padding:16px 0}
+.track{display:flex;gap:46px;width:max-content;animation:marq 32s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.track span{font:700 22px var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--steel);white-space:nowrap;display:flex;align-items:center;gap:46px}
+.track span::after{content:"";width:8px;height:8px;background:var(--red);transform:rotate(45deg)}
+
 section{padding:100px 0;border-bottom:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
 
@@ -180,6 +187,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @keyframes shimmer{to{background-position:-250% 0}}
 @keyframes float{50%{transform:translate(-30px,40px) scale(1.12)}}
 @keyframes pan{to{background-position:56px 56px}}
+@keyframes marq{to{transform:translateX(-50%)}}
 @keyframes blink{50%{opacity:.35}}
 @keyframes bob{50%{transform:translateY(-10px)}}
 @keyframes sk{to{background-position:-300% 0}}
