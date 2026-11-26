@@ -40,7 +40,16 @@
     <li><a href="../rank-boost/" class="on" aria-current="page">Rank boosting</a></li>
     <li><a href="../pricing/">Pricing</a></li>
     <li><a href="../process/">How it works</a></li>
-    <li><a href="#order" class="btn navcta">Order now</a></li>
+    <li class="dd">
+      <button class="ddbtn" type="button" aria-haspopup="true" aria-expanded="false">Order now <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+      <ul class="menu">
+        <li><a href="#order" data-order="Discord bot">Discord bot<small>Commands, moderation, tickets</small></a></li>
+        <li><a href="#order" data-order="Website (one page)">Website<small>One page with all your sections</small></a></li>
+        <li><a href="#order" data-order="Twitch bot">Twitch bot<small>Chat commands, timers, alerts</small></a></li>
+        <li><a href="#order" data-order="Rocket League rank boost">Rocket League boosting<small>Bronze to Grand Champion</small></a></li>
+        <li><a href="#order" data-order="Something else">Something else</a></li>
+      </ul>
+    </li>
   </ul>
 </div></nav>
 
@@ -52,7 +61,6 @@
       <h3>We need access to your account</h3>
       <p>To boost your rank we play on <b>your own account</b>, so we need to log in to it. <b>We always give your account back</b> as soon as the boost is finished.</p>
       <ul>
-        <li>You never put a password in the order form. We ask for the login on Discord after we agree the order.</li>
         <li>We only play the games needed to reach your target rank.</li>
         <li>When we are done, we tell you on Discord and hand the account back to you.</li>
         <li>We recommend changing your password once the boost is finished.</li>
@@ -65,28 +73,27 @@
       <label>Current rank<select id="cFrom"></select></label>
       <label>Target rank<select id="cTo"></select></label>
     </div>
-    <label class="chk"><input type="checkbox" id="cRew" checked><span>Include Rank Rewards (+&euro;5 every time you reach a new rank: Silver I, Gold I, Platinum I, Diamond I, Champion I and Grand Champion I)</span></label>
+    <label class="chk"><input type="checkbox" id="cRew" checked><span>Include Rank Rewards (+&euro;5 for each new rank reached)</span></label>
     <div class="total"><span>Total</span><b id="cTotal">&euro;0</b></div>
-    <div id="cBreak" class="break" aria-live="polite"></div>
     <a class="btn" id="cGo" href="#order">Order this boost</a>
   </div>
   <div class="eyebrow rv" style="margin-top:70px">Price list</div>
   <h2 class="rv" style="--i:1">Every step, one price</h2>
-  <p class="lead rv" style="--i:2">Each step to the next division costs &euro;5. Reaching a new rank adds &euro;5 for the Rank Rewards. The last step, Champion IV to Grand Champion I, costs &euro;10.</p>
+  <p class="lead rv" style="--i:2">Every division step costs &euro;5. Reaching a new rank adds &euro;5 for the Rank Rewards, and the last step, Champion IV to Grand Champion (GC) I, costs &euro;10.</p>
   <div class="ladder" id="ladder"></div>
 </div></section>
 
 <section id="order"><div class="wrap order">
   <div class="rv">
     <div class="eyebrow">Order</div><h2>Request your project</h2>
-    <p class="lead" style="margin-bottom:22px">Tell us what you need. The same short form works for every service.</p>
-    <ul><li>Discord bots for your server or community</li><li>Websites, always one page with all your sections</li><li>Twitch bots for your stream and chat</li><li>Rocket League rank boosting, priced in euro per rank</li><li>Bots and websites cost $5, $10, $25, $50 or $100 in Steam cards</li><li>Builds are delivered to you as a zip file</li></ul>
+    <p class="lead" style="margin-bottom:0">Tell us what you need. The same short form works for every service.</p>
+    <div class="notice"><b>Payment is agreed on Discord first.</b> Bots and websites are paid with a Steam gift card, Rocket League boosts are priced in euro. Never type a password here: for boosts we ask for the account login on Discord.</div>
   </div>
   <form id="of" class="rv" style="--i:2" novalidate>
     <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
     <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. We will message you there.</p>
     <label>What do you need?<select name="type" id="ty"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option value="Rocket League rank boost">Rocket League rank boost</option><option>Something else</option></select></label>
-    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier <span class="fine">(for bots and websites)</span></legend>
+    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier <span class="fine">(bots and websites only)</span></legend>
       <div class="pick">
         <label><input type="radio" name="tier" value="Not sure" checked><span>?<small>Not sure</small></span></label>
         <label><input type="radio" name="tier" value="$5"><span>$5<small>Starter</small></span></label>
@@ -98,13 +105,12 @@
     </fieldset>
     <label id="msgl">Describe what you need<textarea id="msg" name="msg" required maxlength="1000" placeholder="For a bot, list the commands or features you want. For a website, list the sections and any style you like. For a Rocket League boost, tell us your current and target rank, platform and playlist."></textarea></label>
     <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <div class="notice"><b>Payment is agreed on Discord first.</b> Bots and websites are paid with a Steam gift card, Rocket League boosts are priced in euro. We confirm the final price with you before you send anything.<br><b>For boosts we need access to your account.</b> We play on it to reach your rank and always give it back when we are done. Never type your password here, we ask for the login on Discord after we agree the order.</div>
     <button class="btn" type="submit" id="sb">Send request</button>
     <p class="fine" id="note" role="status">Sending this form shares your name, Discord ID and request with us on our private Discord server so we can reply to you.</p>
   </form>
 </div></section>
 
-<footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Discord bots, websites, Twitch bots and Rocket League rank boosting. Orders are handled on Discord.</span></div></footer>
+<footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Orders are handled on Discord.</span></div></footer>
 <script src="../rank.js"></script>
 <script src="../main.js"></script>
 </body>

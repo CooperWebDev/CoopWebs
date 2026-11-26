@@ -17,6 +17,24 @@ const burger=$("#burger");
 burger.addEventListener("click",()=>{const o=nav.classList.toggle("open");burger.setAttribute("aria-expanded",o)});
 $$("#menu a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");burger.setAttribute("aria-expanded","false")}));
 
+/* Order now dropdown */
+const dd=$(".dd"),ddb=$(".ddbtn");
+const setDD=o=>{dd.classList.toggle("open",o);ddb.setAttribute("aria-expanded",o)};
+const hoverMenu=matchMedia("(hover:hover) and (min-width:821px)").matches;
+/* with a mouse the menu opens on hover, so a click must keep it open instead of toggling it shut */
+ddb.addEventListener("click",e=>{e.stopPropagation();setDD(hoverMenu?true:!dd.classList.contains("open"))});
+if(hoverMenu){
+  let t;dd.addEventListener("mouseenter",()=>{clearTimeout(t);setDD(true)});
+  dd.addEventListener("mouseleave",()=>{t=setTimeout(()=>setDD(false),180)});
+}
+document.addEventListener("click",e=>{if(!dd.contains(e.target))setDD(false)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){setDD(false);ddb.focus()}});
+/* choosing an option selects that service in the order panel (the link then scrolls down to it) */
+$$("[data-order]").forEach(a=>a.addEventListener("click",()=>{
+  const sel=$("#ty");if(sel)sel.value=a.dataset.order;
+  setDD(false);
+}));
+
 /* reveal on scroll */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15,rootMargin:"0px 0px -6% 0px"});
 $$(".rv").forEach(el=>io.observe(el));
@@ -71,7 +89,6 @@ if($("#cFrom")&&window.RL){
   const draw=()=>{
     const q=quote();
     $("#cTotal").textContent=eur(q.total);
-    $("#cBreak").innerHTML=q.steps.map(s=>"<div><span>"+s.from+" \u2192 "+s.to+"</span><span>"+eur(s.price)+(s.reward?" <em>+"+eur(s.reward)+" rewards</em>":"")+"</span></div>").join("");
   };
   [cf,ct,cr].forEach(e=>e.addEventListener("change",draw));draw();
 
@@ -87,7 +104,7 @@ if($("#cFrom")&&window.RL){
     const rows=[];
     R.forEach((r,i)=>{if(i<R.length-1&&r.indexOf(t)===0){
       const pr=RL.stepPrice(i),rw=RL.stepReward(i);
-      rows.push("<div><span>"+r+" \u2192 "+R[i+1]+"</span><span>"+eur(pr)+(rw?" <em>+"+eur(rw)+" rewards</em>":"")+"</span></div>");
+      rows.push("<div><span>"+r+" \u2192 "+R[i+1].replace("Grand Champion","GC")+"</span><span>"+eur(pr)+(rw?" <em>+"+eur(rw)+" rewards</em>":"")+"</span></div>");
     }});
     return rows.length?"<article class=\"card rv in\"><h3>"+t+"</h3>"+rows.join("")+"</article>":"";
   }).join("");

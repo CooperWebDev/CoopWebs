@@ -40,7 +40,16 @@
     <li><a href="../rank-boost/">Rank boosting</a></li>
     <li><a href="../pricing/" class="on" aria-current="page">Pricing</a></li>
     <li><a href="../process/">How it works</a></li>
-    <li><a href="#order" class="btn navcta">Order now</a></li>
+    <li class="dd">
+      <button class="ddbtn" type="button" aria-haspopup="true" aria-expanded="false">Order now <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+      <ul class="menu">
+        <li><a href="#order" data-order="Discord bot">Discord bot<small>Commands, moderation, tickets</small></a></li>
+        <li><a href="#order" data-order="Website (one page)">Website<small>One page with all your sections</small></a></li>
+        <li><a href="#order" data-order="Twitch bot">Twitch bot<small>Chat commands, timers, alerts</small></a></li>
+        <li><a href="#order" data-order="Rocket League rank boost">Rocket League boosting<small>Bronze to Grand Champion</small></a></li>
+        <li><a href="#order" data-order="Something else">Something else</a></li>
+      </ul>
+    </li>
   </ul>
 </div></nav>
 
@@ -50,7 +59,6 @@
     <article class="tier rv" style="--i:0">
       <div class="name">Starter</div>
       <div class="price"><sup>$</sup>5</div>
-      <div class="card-type">Steam gift card</div>
       <div class="meter" aria-label="Effort 1 of 5"><i class="f"></i><i></i><i></i><i></i><i></i></div>
       <ul><li>A simple one screen site</li><li>Or a bot with a few commands</li><li>Clean and quick to build</li></ul>
       <div class="effort">Quick build</div>
@@ -59,7 +67,6 @@
     <article class="tier rv" style="--i:1">
       <div class="name">Basic</div>
       <div class="price"><sup>$</sup>10</div>
-      <div class="card-type">Steam gift card</div>
       <div class="meter" aria-label="Effort 2 of 5"><i class="f"></i><i class="f"></i><i></i><i></i><i></i></div>
       <ul><li>Site with up to 4 sections</li><li>Or a bot with basic features</li><li>Light animations</li></ul>
       <div class="effort">Short build</div>
@@ -69,7 +76,6 @@
       <span class="badge">Popular</span>
       <div class="name">Standard</div>
       <div class="price"><sup>$</sup>25</div>
-      <div class="card-type">Steam gift card</div>
       <div class="meter" aria-label="Effort 3 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div>
       <ul><li>Fully custom site design</li><li>Or a bot with many commands</li><li>Rich animations</li></ul>
       <div class="effort">Medium build</div>
@@ -78,7 +84,6 @@
     <article class="tier rv" style="--i:3">
       <div class="name">Advanced</div>
       <div class="price"><sup>$</sup>50</div>
-      <div class="card-type">Steam gift card</div>
       <div class="meter" aria-label="Effort 4 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
       <ul><li>Complex sites and layouts</li><li>Or a bot with stored data</li><li>Interactive features</li></ul>
       <div class="effort">Long build</div>
@@ -87,7 +92,6 @@
     <article class="tier rv" style="--i:4">
       <div class="name">Premium</div>
       <div class="price"><sup>$</sup>100</div>
-      <div class="card-type">Steam gift card</div>
       <div class="meter" aria-label="Effort 5 of 5"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
       <ul><li>API and live data</li><li>Large, full featured bots</li><li>Big, detailed projects</li></ul>
       <div class="effort">Major build</div>
@@ -99,23 +103,19 @@
     <span><b>Not sure which tier?</b> Choose "Not sure" in the order form and describe your idea. We will tell you the fair card value on Discord. You send the card code after we agree, and then we start building.</span>
   </div>
 
-  <div class="steamnote rv" style="margin-top:14px">
-    <svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.3L20 9l-4.4 3.9L17 19l-5-3-5 3 1.4-6.1L4 9l5.8-.7z"/></svg>
-    <span><b>Rocket League boosts are priced in euro.</b> It is &euro;5 per division step, plus &euro;5 for each new rank reached with Rank Rewards. <a href="../rank-boost/" style="color:var(--red2)">Try the price calculator</a>.</span>
-  </div>
 </div></section>
 
 <section id="order"><div class="wrap order">
   <div class="rv">
     <div class="eyebrow">Order</div><h2>Request your project</h2>
-    <p class="lead" style="margin-bottom:22px">Tell us what you need. The same short form works for every service.</p>
-    <ul><li>Discord bots for your server or community</li><li>Websites, always one page with all your sections</li><li>Twitch bots for your stream and chat</li><li>Rocket League rank boosting, priced in euro per rank</li><li>Bots and websites cost $5, $10, $25, $50 or $100 in Steam cards</li><li>Builds are delivered to you as a zip file</li></ul>
+    <p class="lead" style="margin-bottom:0">Tell us what you need. The same short form works for every service.</p>
+    <div class="notice"><b>Payment is agreed on Discord first.</b> Bots and websites are paid with a Steam gift card, Rocket League boosts are priced in euro. Never type a password here: for boosts we ask for the account login on Discord.</div>
   </div>
   <form id="of" class="rv" style="--i:2" novalidate>
     <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
     <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. We will message you there.</p>
     <label>What do you need?<select name="type" id="ty"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option value="Rocket League rank boost">Rocket League rank boost</option><option>Something else</option></select></label>
-    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier <span class="fine">(for bots and websites)</span></legend>
+    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier <span class="fine">(bots and websites only)</span></legend>
       <div class="pick">
         <label><input type="radio" name="tier" value="Not sure" checked><span>?<small>Not sure</small></span></label>
         <label><input type="radio" name="tier" value="$5"><span>$5<small>Starter</small></span></label>
@@ -127,13 +127,12 @@
     </fieldset>
     <label id="msgl">Describe what you need<textarea id="msg" name="msg" required maxlength="1000" placeholder="For a bot, list the commands or features you want. For a website, list the sections and any style you like. For a Rocket League boost, tell us your current and target rank, platform and playlist."></textarea></label>
     <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <div class="notice"><b>Payment is agreed on Discord first.</b> Bots and websites are paid with a Steam gift card, Rocket League boosts are priced in euro. We confirm the final price with you before you send anything.<br><b>For boosts we need access to your account.</b> We play on it to reach your rank and always give it back when we are done. Never type your password here, we ask for the login on Discord after we agree the order.</div>
     <button class="btn" type="submit" id="sb">Send request</button>
     <p class="fine" id="note" role="status">Sending this form shares your name, Discord ID and request with us on our private Discord server so we can reply to you.</p>
   </form>
 </div></section>
 
-<footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Discord bots, websites, Twitch bots and Rocket League rank boosting. Orders are handled on Discord.</span></div></footer>
+<footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Orders are handled on Discord.</span></div></footer>
 <script src="../main.js"></script>
 </body>
 </html>
