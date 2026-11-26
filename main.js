@@ -131,7 +131,7 @@ if(form){
     const text=isBoost?boostText(f):String(f.get("msg")||"").trim();
     if(!name||!text){say("Please fill in your name and describe what you need.",true);return}
     if(!/^[0-9]{17,20}$/.test(id)){say("Your Discord ID must be the 17 to 20 digit number, not your username.",true);return}
-    if(isBoost&&!f.get("consent")){say("Please tick the box to confirm that we may play on your account and will return it.",true);return}
+    if(isBoost&&!f.get("consent")){say("Please switch on the confirmation to agree that we may play on your account and will return it.",true);return}
     if(Date.now()-last()<COOLDOWN){say("Please wait a minute before sending another request.",true);return}
     btn.disabled=true;say("Sending your request...");
     const body={name:name,discord:id,type:String(f.get("type")),tier:String(f.get("tier")||""),msg:text,website:""};
