@@ -317,3 +317,8 @@ nav a.on:not(.btn)::after{transform:scaleX(1)}
   .card.feature .ico{margin-bottom:18px}
 }
 nav a.navcta{padding:9px 18px;font-size:14px}
+
+/* multi page: order panel sits at the bottom of every page */
+#order{border-bottom:0}
+#order .lead{max-width:44ch}
+.steamnote a{text-decoration:none}

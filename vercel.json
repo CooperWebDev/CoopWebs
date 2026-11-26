@@ -3,17 +3,6 @@
     { "source": "/", "destination": "/home/", "permanent": false },
     { "source": "/order", "destination": "/home/#order", "permanent": false },
     { "source": "/order/", "destination": "/home/#order", "permanent": false },
-    { "source": "/order.html", "destination": "/home/#order", "permanent": false },
-    { "source": "/services", "destination": "/home/#services", "permanent": false },
-    { "source": "/services/", "destination": "/home/#services", "permanent": false },
-    { "source": "/services.html", "destination": "/home/#services", "permanent": false },
-    { "source": "/pricing", "destination": "/home/#pricing", "permanent": false },
-    { "source": "/pricing/", "destination": "/home/#pricing", "permanent": false },
-    { "source": "/pricing.html", "destination": "/home/#pricing", "permanent": false },
-    { "source": "/process", "destination": "/home/#process", "permanent": false },
-    { "source": "/process/", "destination": "/home/#process", "permanent": false },
-    { "source": "/process.html", "destination": "/home/#process", "permanent": false },
-    { "source": "/rank-boost", "destination": "/home/#rank", "permanent": false },
-    { "source": "/rank-boost/", "destination": "/home/#rank", "permanent": false }
+    { "source": "/order.html", "destination": "/home/#order", "permanent": false }
   ]
 }
