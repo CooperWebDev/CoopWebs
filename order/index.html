@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Order a project | Copper</title>
-<meta name="description" content="Request a Discord bot, website or Twitch bot from Copper. Pick a Steam card tier and describe what you need.">
+<title>Order | Copper</title>
+<meta name="description" content="Choose what you want to order from Copper: a Discord bot, website, Twitch bot or a Rocket League rank boost. Every service has its own order page.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="mask-icon" href="../favicon.svg" color="#e24b3f">
 <meta name="theme-color" content="#e24b3f">
@@ -12,16 +12,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Copper">
 <meta property="og:url" content="https://coppernetwork.vercel.app/order/">
-<meta property="og:title" content="Order a project | Copper">
-<meta property="og:description" content="Request a Discord bot, website or Twitch bot from Copper. Pick a Steam card tier and describe what you need.">
+<meta property="og:title" content="Order | Copper">
+<meta property="og:description" content="Choose what you want to order from Copper: a Discord bot, website, Twitch bot or a Rocket League rank boost. Every service has its own order page.">
 <meta property="og:image" content="https://coppernetwork.vercel.app/og-copper-2.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Copper: Discord bots, websites and Twitch bots">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Order a project | Copper">
-<meta name="twitter:description" content="Request a Discord bot, website or Twitch bot from Copper. Pick a Steam card tier and describe what you need.">
+<meta name="twitter:title" content="Order | Copper">
+<meta name="twitter:description" content="Choose what you want to order from Copper: a Discord bot, website, Twitch bot or a Rocket League rank boost. Every service has its own order page.">
 <meta name="twitter:image" content="https://coppernetwork.vercel.app/og-copper-2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,56 +37,35 @@
     <li><a href="../home/">Home</a></li>
     <li><a href="../services/">What we build</a></li>
     <li><a href="../rank-boost/">Rank boosting</a></li>
+    <li><a href="../pricing/">Pricing</a></li>
+    <li><a href="../process/">How it works</a></li>
     <li class="dd">
-      <button class="ddbtn" aria-haspopup="true" aria-expanded="false">Order <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+      <button class="ddbtn" type="button" aria-haspopup="true" aria-expanded="false">Order now <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
       <ul class="menu">
-        <li><a href="../pricing/">Pricing<small>Steam card tiers, $5 to $100</small></a></li>
-        <li><a href="../process/">How it works<small>Four simple steps</small></a></li>
-        <li><a href="../order/" class="go">Request a project</a></li>
+        <li><a href="../order/" class="go">All order options</a></li>
+        <li><a href="../order/discord-bot/">Discord bot<small>Commands, moderation, tickets</small></a></li>
+        <li><a href="../order/website/">Website<small>One page with all your sections</small></a></li>
+        <li><a href="../order/twitch-bot/">Twitch bot<small>Chat commands, timers, alerts</small></a></li>
+        <li><a href="../order/rank-boost/">Rocket League boosting<small>Bronze to Grand Champion</small></a></li>
+        <li><a href="../order/other/">Something else</a></li>
       </ul>
     </li>
   </ul>
 </div></nav>
 
-<section id="order" class="pagehead" style="padding-bottom:100px"><div class="wrap order">
-  <div class="rv">
-    <div class="eyebrow">Order</div><h2>Request your project</h2>
-    <p class="lead" style="margin-bottom:22px">Tell us what you need and pick the Steam card tier or rank that fits.</p>
-    <ul><li>Discord bots for your server or community</li><li>Websites, always one page with all your sections</li><li>Twitch bots for your stream and chat</li><li>Price set by difficulty: $5, $10, $25, $50 or $100</li><li>Delivered to you as a zip file</li><li>Rocket League rank boosting, priced in euro per rank</li></ul>
+<section class="pagehead"><div class="wrap"><div class="eyebrow">Order</div><h1>What do you want to order?</h1><p class="lead">Every service has its own order page. Pick one and send us your request. Payment is always agreed on Discord first.</p></div></section>
+<section id="choose"><div class="wrap">
+  <div class="home-links order-links">
+    <a class="card rv" style="--i:0" href="discord-bot/" data-svc><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16.5h6"/><circle cx="12" cy="3.5" r="1"/></svg></div><h3>Discord bot</h3><p>Commands, moderation, tickets and more. Paid with a Steam card.</p><span class="more">Order this</span></a>
+    <a class="card rv" style="--i:1" href="website/" data-svc><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M8 14l-2 2 2 2M16 14l2 2-2 2"/></svg></div><h3>Website</h3><p>One page with all your sections. Paid with a Steam card.</p><span class="more">Order this</span></a>
+    <a class="card rv" style="--i:2" href="twitch-bot/" data-svc><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 3h16v12l-4 4h-4l-3 2v-2H4z"/><path d="M12 8v3M16 8v3"/></svg></div><h3>Twitch bot</h3><p>Chat commands, timers and alerts. Paid with a Steam card.</p><span class="more">Order this</span></a>
+    <a class="card rv" style="--i:3" href="rank-boost/" data-svc><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 01-8 0zM8 6H5v1a3 3 0 003 3M16 6h3v1a3 3 0 01-3 3M12 13v4M9 20h6M10 17h4"/></svg></div><h3>Rocket League boosting</h3><p>Bronze to Grand Champion, priced in euro with a live calculator.</p><span class="more">Order this</span></a>
+    <a class="card rv" style="--i:4" href="other/" data-svc><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div><h3>Something else</h3><p>A different idea? Tell us and we will say if we can build it.</p><span class="more">Order this</span></a>
   </div>
-  <form id="of" class="rv" style="--i:2" novalidate>
-    <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
-    <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. We will message you there.</p>
-    <label>What do you need?<select name="type" id="ty"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option value="Rocket League rank boost">Rocket League rank boost</option><option>Something else</option></select></label>
-    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier</legend>
-      <div class="pick">
-        <label><input type="radio" name="tier" value="Not sure" checked><span>?<small>Not sure</small></span></label>
-        <label><input type="radio" name="tier" value="$5"><span>$5<small>Starter</small></span></label>
-        <label><input type="radio" name="tier" value="$10"><span>$10<small>Basic</small></span></label>
-        <label><input type="radio" name="tier" value="$25"><span>$25<small>Standard</small></span></label>
-        <label><input type="radio" name="tier" value="$50"><span>$50<small>Advanced</small></span></label>
-        <label><input type="radio" name="tier" value="$100"><span>$100<small>Premium</small></span></label>
-      </div>
-    </fieldset>
-    <div id="rk" class="rk" hidden>
-      <div class="two"><label>Current rank<select name="from" id="rkFrom"></select></label><label>Target rank<select name="to" id="rkTo"></select></label></div>
-      <div class="two"><label>Platform<select name="platform"><option>Steam</option><option>Epic Games</option><option>PlayStation</option><option>Xbox</option><option>Nintendo Switch</option></select></label><label>Playlist<select name="playlist"><option>Ranked 2v2 Duel/Doubles</option><option>Ranked 3v3 Standard</option><option>Ranked 1v1 Duel</option></select></label></div>
-      <label class="chk"><input type="checkbox" name="rew" id="rkRew" checked><span>Include Rank Rewards (+&euro;5 for each new rank reached)</span></label>
-      <div class="total"><span>Estimated price</span><b id="rkTotal">&euro;0</b></div>
-      <div class="notice"><b>We need access to your account.</b> We play on your own account to reach your target rank, and <b>we always give your account back</b> when we are done. Do not type your password here. We will ask for the login on Discord after we agree the order.</div>
-      <label class="chk"><input type="checkbox" name="consent" id="rkOk"><span>I understand that Copper will log in to and play on my account, and that it will be returned to me when the boost is finished.</span></label>
-    </div>
-    <label id="msgl">Describe what you need<textarea id="msg" name="msg" required maxlength="1000" placeholder="What should it do? For a bot, list the commands or features you want. For a website, list the sections and any style you like."></textarea></label>
-    <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <div class="notice" id="payn"><b>Payment is by Steam gift card.</b> We will confirm the final value with you on Discord before you send anything. Your finished project is delivered as a zip file.</div>
-    <button class="btn" type="submit" id="sb">Send request</button>
-    <p class="fine" id="note" role="status">Sending this form shares your name, Discord ID and request with us on our private Discord server so we can reply to you.</p>
-  </form>
+  <p class="fine rv" style="margin-top:26px">Not sure about the price? See the <a href="../pricing/" style="color:var(--red2)">Steam card tiers</a> or the <a href="../rank-boost/" style="color:var(--red2)">rank boost prices</a>, or read <a href="../process/" style="color:var(--red2)">how it works</a>.</p>
 </div></section>
 
-
-<footer><div class="wrap"><span>© <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Discord bots, websites, Twitch bots and Rocket League rank boosting. Orders are handled on Discord.</span></div></footer>
-<script src="../rank.js"></script>
+<footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Orders are handled on Discord.</span></div></footer>
 <script src="../main.js"></script>
 </body>
 </html>

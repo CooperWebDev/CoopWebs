@@ -1,8 +1,6 @@
 {
   "redirects": [
     { "source": "/", "destination": "/home/", "permanent": false },
-    { "source": "/order", "destination": "/home/#order", "permanent": false },
-    { "source": "/order/", "destination": "/home/#order", "permanent": false },
-    { "source": "/order.html", "destination": "/home/#order", "permanent": false }
+    { "source": "/order.html", "destination": "/order/", "permanent": true }
   ]
 }

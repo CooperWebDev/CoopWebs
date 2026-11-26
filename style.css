@@ -330,3 +330,12 @@ legend.lbl .fine{display:inline;margin-left:6px}
   nav ul{background:#0b1017;max-height:calc(100vh - 64px);overflow-y:auto}
   .menu{min-width:0}
 }
+
+/* ---------- separate order pages ---------- */
+.order-links{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.back{display:inline-block;margin-bottom:18px;color:var(--muted);text-decoration:none;font-size:15px;transition:color .2s}
+.back:hover{color:var(--text)}
+.cta-band{text-align:center}
+.cta-band .wrap{display:grid;gap:14px;justify-items:center}
+.cta-band h2{margin:0}
+.cta-band .lead{margin:0}

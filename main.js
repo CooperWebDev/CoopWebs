@@ -29,12 +29,6 @@ if(hoverMenu){
 }
 document.addEventListener("click",e=>{if(!dd.contains(e.target))setDD(false)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){setDD(false);ddb.focus()}});
-/* choosing an option selects that service in the order panel (the link then scrolls down to it) */
-$$("[data-order]").forEach(a=>a.addEventListener("click",()=>{
-  const sel=$("#ty");if(sel)sel.value=a.dataset.order;
-  setDD(false);
-}));
-
 /* reveal on scroll */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15,rootMargin:"0px 0px -6% 0px"});
 $$(".rv").forEach(el=>io.observe(el));
@@ -62,26 +56,28 @@ $$(".card,.tier").forEach(el=>{
   el.addEventListener("pointerleave",()=>{if(el.classList.contains("tier"))el.style.transform=""});
 });
 
-/* ---------- Order panel (identical on every page) ---------- */
+/* ---------- Order pages ---------- */
 const form=$("#of"),ty=$("#ty"),msg=$("#msg");
 const BOOST="Rocket League rank boost";
 const AUTO="Rocket League boost:";
+const params=new URLSearchParams(location.search);
 
-/* pricing buttons pick a tier in the panel on the same page */
-$$("[data-tier]").forEach(a=>a.addEventListener("click",()=>{
-  if(ty.value===BOOST)ty.value="Discord bot";
-  const r=$('input[name="tier"][value="'+a.dataset.tier+'"]');if(r)r.checked=true;
-}));
+/* the order chooser passes a chosen Steam card tier on to the service pages */
+{
+  const t=(params.get("tier")||"").replace(/[^0-9]/g,"");
+  $$("[data-svc]").forEach(a=>{
+    if(t&&!a.getAttribute("href").startsWith("rank-boost"))a.href=a.getAttribute("href")+"?tier="+t;
+  });
+  if(t&&form){const r=$('input[name="tier"][value="$'+t+'"]');if(r)r.checked=true}
+}
 
-/* ---------- Rocket League calculator + price list (rank boosting page only) ---------- */
-if($("#cFrom")&&window.RL){
-  const R=RL.RANKS,cf=$("#cFrom"),ct=$("#cTo"),cr=$("#cRew");
+/* ---------- Rocket League calculator (rank boosting page and its order page) ---------- */
+let resetCalc=()=>{};
+const cf=$("#cFrom");
+if(cf&&window.RL){
+  const R=RL.RANKS,ct=$("#cTo"),cr=$("#cRew"),go=$("#cGo"),goBase=go?go.getAttribute("href").split("?")[0]:"";
   cf.innerHTML=R.slice(0,-1).map(r=>"<option>"+r+"</option>").join("");
   ct.innerHTML=R.slice(1).map(r=>"<option>"+r+"</option>").join("");
-  const p=new URLSearchParams(location.search);
-  cf.value=(R.indexOf(p.get("from"))>=0&&R.indexOf(p.get("from"))<R.length-1)?p.get("from"):"Gold I";
-  ct.value=(R.indexOf(p.get("to"))>0)?p.get("to"):R[Math.min(R.indexOf(cf.value)+4,R.length-1)];
-  if(p.get("rew")==="0")cr.checked=false;
   const quote=()=>{
     if(R.indexOf(ct.value)<=R.indexOf(cf.value))ct.value=R[R.indexOf(cf.value)+1];
     return RL.quote(cf.value,ct.value,cr.checked);
@@ -89,18 +85,22 @@ if($("#cFrom")&&window.RL){
   const draw=()=>{
     const q=quote();
     $("#cTotal").textContent=eur(q.total);
+    /* "Order this boost" opens the boost order page with the same ranks filled in */
+    if(go)go.href=goBase+"?from="+encodeURIComponent(q.from)+"&to="+encodeURIComponent(q.to)+"&rew="+(cr.checked?1:0);
   };
-  [cf,ct,cr].forEach(e=>e.addEventListener("change",draw));draw();
+  const defaults=()=>{
+    const fi=R.indexOf(params.get("from")),ti=R.indexOf(params.get("to"));
+    cf.value=(fi>=0&&fi<R.length-1)?R[fi]:"Gold I";
+    ct.value=(ti>0)?R[ti]:R[Math.min(R.indexOf(cf.value)+4,R.length-1)];
+    cr.checked=params.get("rew")!=="0";
+    draw();
+  };
+  [cf,ct,cr].forEach(e=>e.addEventListener("change",draw));
+  defaults();
+  resetCalc=defaults;
 
-  /* "Order this boost" selects the service and writes the ranks into the same panel's message box */
-  $("#cGo").addEventListener("click",()=>{
-    const q=quote();
-    ty.value=BOOST;
-    if(!msg.value.trim()||msg.value.startsWith(AUTO))
-      msg.value=AUTO+" "+q.from+" to "+q.to+", "+(cr.checked?"with":"without")+" Rank Rewards. Estimated price: "+eur(q.total)+".\nPlatform: \nPlaylist: \n";
-  });
-
-  $("#ladder").innerHTML=RL.TIERS.concat(["Grand Champion"]).map(t=>{
+  const ladder=$("#ladder");
+  if(ladder)ladder.innerHTML=RL.TIERS.concat(["Grand Champion"]).map(t=>{
     const rows=[];
     R.forEach((r,i)=>{if(i<R.length-1&&r.indexOf(t)===0){
       const pr=RL.stepPrice(i),rw=RL.stepReward(i);
@@ -110,38 +110,40 @@ if($("#cFrom")&&window.RL){
   }).join("");
 }
 
-/* old order links such as ?tier=25 or ?service=rank still work */
-{
-  const p=new URLSearchParams(location.search),t=(p.get("tier")||"").replace(/[^0-9]/g,"");
-  if(t){const r=$('input[name="tier"][value="$'+t+'"]');if(r)r.checked=true}
-  if(p.get("service")==="rank")ty.value=BOOST;
-}
-
 /* ---------- Sending ---------- */
-const COOLDOWN=60*1000; // short anti spam pause between orders
-const note=$("#note"),btn=$("#sb");
-const say=(t,err)=>{note.textContent=t;note.style.color=err?"#ff8b84":""};
-const last=()=>{try{return Number(localStorage.getItem("lastOrder"))||0}catch{return 0}};
+if(form){
+  const COOLDOWN=60*1000; // short anti spam pause between orders
+  const note=$("#note"),btn=$("#sb");
+  const say=(t,err)=>{note.textContent=t;note.style.color=err?"#ff8b84":""};
+  const last=()=>{try{return Number(localStorage.getItem("lastOrder"))||0}catch{return 0}};
+  const isBoost=form.dataset.kind==="boost";
+  const boostText=f=>{
+    const q=RL.quote(f.get("from"),f.get("to"),!!f.get("rew"));
+    const extra=String(f.get("msg")||"").trim();
+    return AUTO+" "+q.from+" to "+q.to+", "+(q.rewards?"with":"without")+" Rank Rewards. Estimated price: "+eur(q.total)+".\nPlatform: "+f.get("platform")+"\nPlaylist: "+f.get("playlist")+(extra?"\nNotes: "+extra:"");
+  };
 
-form.addEventListener("submit",async e=>{
-  e.preventDefault();
-  const f=new FormData(form);
-  if(f.get("website"))return;
-  const name=String(f.get("name")||"").trim(),id=String(f.get("discord")||"").trim(),text=String(f.get("msg")||"").trim();
-  if(!name||!text){say("Please fill in your name and describe what you need.",true);return}
-  if(!/^[0-9]{17,20}$/.test(id)){say("Your Discord ID must be the 17 to 20 digit number, not your username.",true);return}
-  if(Date.now()-last()<COOLDOWN){say("Please wait a minute before sending another request.",true);return}
-  btn.disabled=true;say("Sending your request...");
-  const body={name:name,discord:id,type:String(f.get("type")),tier:String(f.get("tier")||""),msg:text,website:""};
-  try{
-    const r=await fetch("/api/order",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
-    if(!r.ok)throw new Error(r.status);
-    try{localStorage.setItem("lastOrder",String(Date.now()))}catch{}
-    const boost=body.type===BOOST;
-    form.reset();
-    btn.classList.add("ok");btn.textContent="Request sent \u2713";
-    setTimeout(()=>{btn.classList.remove("ok");btn.textContent="Send request"},3500);
-    say(boost?"Thank you! Your boost request was sent. We will contact you on Discord to agree the price and to arrange access to your account. We always give your account back when the boost is done.":"Thank you! Your request was sent. We will contact you on Discord to confirm the price, and we will send you the finished project as a zip when it is ready.");
-  }catch(err){say("Your request could not be sent. Please try again in a moment.",true)}
-  btn.disabled=false;
-});
+  form.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const f=new FormData(form);
+    if(f.get("website"))return;
+    const name=String(f.get("name")||"").trim(),id=String(f.get("discord")||"").trim();
+    const text=isBoost?boostText(f):String(f.get("msg")||"").trim();
+    if(!name||!text){say("Please fill in your name and describe what you need.",true);return}
+    if(!/^[0-9]{17,20}$/.test(id)){say("Your Discord ID must be the 17 to 20 digit number, not your username.",true);return}
+    if(isBoost&&!f.get("consent")){say("Please tick the box to confirm that we may play on your account and will return it.",true);return}
+    if(Date.now()-last()<COOLDOWN){say("Please wait a minute before sending another request.",true);return}
+    btn.disabled=true;say("Sending your request...");
+    const body={name:name,discord:id,type:String(f.get("type")),tier:String(f.get("tier")||""),msg:text,website:""};
+    try{
+      const r=await fetch("/api/order",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+      if(!r.ok)throw new Error(r.status);
+      try{localStorage.setItem("lastOrder",String(Date.now()))}catch{}
+      form.reset();resetCalc();
+      btn.classList.add("ok");btn.textContent="Request sent \u2713";
+      setTimeout(()=>{btn.classList.remove("ok");btn.textContent="Send request"},3500);
+      say(isBoost?"Thank you! Your boost request was sent. We will contact you on Discord to agree the price and to arrange access to your account. We always give your account back when the boost is done.":"Thank you! Your request was sent. We will contact you on Discord to confirm the price, and we will send you the finished project as a zip when it is ready.");
+    }catch(err){say("Your request could not be sent. Please try again in a moment.",true)}
+    btn.disabled=false;
+  });
+}

@@ -43,11 +43,12 @@
     <li class="dd">
       <button class="ddbtn" type="button" aria-haspopup="true" aria-expanded="false">Order now <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
       <ul class="menu">
-        <li><a href="#order" data-order="Discord bot">Discord bot<small>Commands, moderation, tickets</small></a></li>
-        <li><a href="#order" data-order="Website (one page)">Website<small>One page with all your sections</small></a></li>
-        <li><a href="#order" data-order="Twitch bot">Twitch bot<small>Chat commands, timers, alerts</small></a></li>
-        <li><a href="#order" data-order="Rocket League rank boost">Rocket League boosting<small>Bronze to Grand Champion</small></a></li>
-        <li><a href="#order" data-order="Something else">Something else</a></li>
+        <li><a href="../order/" class="go">All order options</a></li>
+        <li><a href="../order/discord-bot/">Discord bot<small>Commands, moderation, tickets</small></a></li>
+        <li><a href="../order/website/">Website<small>One page with all your sections</small></a></li>
+        <li><a href="../order/twitch-bot/">Twitch bot<small>Chat commands, timers, alerts</small></a></li>
+        <li><a href="../order/rank-boost/">Rocket League boosting<small>Bronze to Grand Champion</small></a></li>
+        <li><a href="../order/other/">Something else</a></li>
       </ul>
     </li>
   </ul>
@@ -57,7 +58,7 @@
 <section id="process"><div class="wrap">
   <div class="steps rv"><div class="line"></div>
     <div class="grid">
-      <div class="card"><span class="num">01</span><h3>Send your request</h3><p>Fill in the order form below with what you need: a Discord bot, website, Twitch bot or a Rocket League boost.</p></div>
+      <div class="card"><span class="num">01</span><h3>Send your request</h3><p>Pick what you want on the <a href="../order/" style="color:var(--red2)">order page</a> and fill in the short form: a Discord bot, website, Twitch bot or a Rocket League boost.</p></div>
       <div class="card"><span class="num">02</span><h3>Agree the price</h3><p>We reply on Discord. For builds we confirm the Steam card value, for boosts we agree the price and how you pay.</p></div>
       <div class="card"><span class="num">03</span><h3>We build or boost</h3><p>Once everything is agreed we get to work as fast as we can. Quality is never rushed. For boosts, we ask for the account login on Discord.</p></div>
       <div class="card"><span class="num">04</span><h3>You get it back</h3><p>We send builds as a zip file on Discord. Boosted accounts are handed straight back to you.</p></div>
@@ -65,31 +66,10 @@
   </div>
 </div></section>
 
-<section id="order"><div class="wrap order">
-  <div class="rv">
-    <div class="eyebrow">Order</div><h2>Request your project</h2>
-    <p class="lead" style="margin-bottom:0">Tell us what you need. The same short form works for every service.</p>
-    <div class="notice"><b>Payment is agreed on Discord first.</b> Bots and websites are paid with a Steam gift card, Rocket League boosts are priced in euro. Never type a password here: for boosts we ask for the account login on Discord.</div>
-  </div>
-  <form id="of" class="rv" style="--i:2" novalidate>
-    <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
-    <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. We will message you there.</p>
-    <label>What do you need?<select name="type" id="ty"><option>Discord bot</option><option>Website (one page)</option><option>Twitch bot</option><option value="Rocket League rank boost">Rocket League rank boost</option><option>Something else</option></select></label>
-    <fieldset id="tf" style="border:0;padding:0;margin:0"><legend class="lbl" style="margin-bottom:8px;padding:0">Steam card tier <span class="fine">(bots and websites only)</span></legend>
-      <div class="pick">
-        <label><input type="radio" name="tier" value="Not sure" checked><span>?<small>Not sure</small></span></label>
-        <label><input type="radio" name="tier" value="$5"><span>$5<small>Starter</small></span></label>
-        <label><input type="radio" name="tier" value="$10"><span>$10<small>Basic</small></span></label>
-        <label><input type="radio" name="tier" value="$25"><span>$25<small>Standard</small></span></label>
-        <label><input type="radio" name="tier" value="$50"><span>$50<small>Advanced</small></span></label>
-        <label><input type="radio" name="tier" value="$100"><span>$100<small>Premium</small></span></label>
-      </div>
-    </fieldset>
-    <label id="msgl">Describe what you need<textarea id="msg" name="msg" required maxlength="1000" placeholder="For a bot, list the commands or features you want. For a website, list the sections and any style you like. For a Rocket League boost, tell us your current and target rank, platform and playlist."></textarea></label>
-    <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <button class="btn" type="submit" id="sb">Send request</button>
-    <p class="fine" id="note" role="status">Sending this form shares your name, Discord ID and request with us on our private Discord server so we can reply to you.</p>
-  </form>
+<section class="cta-band"><div class="wrap rv">
+  <h2>Ready to order?</h2>
+  <p class="lead">Every service has its own order page. Payment is agreed on Discord first.</p>
+  <a class="btn" href="../order/">Choose what to order</a>
 </div></section>
 
 <footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Orders are handled on Discord.</span></div></footer>

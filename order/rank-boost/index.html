@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order a Rocket League rank boost | Copper</title>
+<meta name="description" content="Order a Rocket League rank boost from Copper. Pick your current and target rank, see the exact price in euro and send your request.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="../../favicon.svg" color="#e24b3f">
+<meta name="theme-color" content="#e24b3f">
+<link rel="canonical" href="https://coppernetwork.vercel.app/order/rank-boost/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Copper">
+<meta property="og:url" content="https://coppernetwork.vercel.app/order/rank-boost/">
+<meta property="og:title" content="Order a Rocket League rank boost | Copper">
+<meta property="og:description" content="Order a Rocket League rank boost from Copper. Pick your current and target rank, see the exact price in euro and send your request.">
+<meta property="og:image" content="https://coppernetwork.vercel.app/og-copper-2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Order a Rocket League rank boost | Copper">
+<meta name="twitter:description" content="Order a Rocket League rank boost from Copper. Pick your current and target rank, see the exact price in euro and send your request.">
+<meta name="twitter:image" content="https://coppernetwork.vercel.app/og-copper-2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<div id="bar"></div>
+<nav id="nav"><div class="wrap">
+  <a class="logo" href="../../home/"><span>COPPER<b>.</b></span></a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  <ul id="menu">
+    <li><a href="../../home/">Home</a></li>
+    <li><a href="../../services/">What we build</a></li>
+    <li><a href="../../rank-boost/">Rank boosting</a></li>
+    <li><a href="../../pricing/">Pricing</a></li>
+    <li><a href="../../process/">How it works</a></li>
+    <li class="dd">
+      <button class="ddbtn" type="button" aria-haspopup="true" aria-expanded="false">Order now <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4"/></svg></button>
+      <ul class="menu">
+        <li><a href="../../order/" class="go">All order options</a></li>
+        <li><a href="../../order/discord-bot/">Discord bot<small>Commands, moderation, tickets</small></a></li>
+        <li><a href="../../order/website/">Website<small>One page with all your sections</small></a></li>
+        <li><a href="../../order/twitch-bot/">Twitch bot<small>Chat commands, timers, alerts</small></a></li>
+        <li><a href="../../order/rank-boost/">Rocket League boosting<small>Bronze to Grand Champion</small></a></li>
+        <li><a href="../../order/other/">Something else</a></li>
+      </ul>
+    </li>
+  </ul>
+</div></nav>
+
+<section class="pagehead"><div class="wrap"><a class="back" href="../">&larr; All order options</a><div class="eyebrow">Order</div><h1>Order a rank boost</h1><p class="lead">Pick the rank you are at and the rank you want. You see the exact price in euro before you send your request.</p></div></section>
+<section id="order"><div class="wrap order">
+  <div class="rv">
+    <ul><li>Bronze to Grand Champion, every division step is &euro;5</li><li>Reaching a new rank adds &euro;5 for the Rank Rewards, Champion IV to Grand Champion I costs &euro;10</li><li>Price agreed on Discord before we start</li><li>We always give your account back when the boost is done</li></ul>
+    <div class="notice"><b>We need access to your account.</b> We play on your own account to reach your target rank, and <b>we always give your account back</b> when we are done. Do not type your password here. We will ask for the login on Discord after we agree the order. See <a href="../../rank-boost/" style="color:var(--red2)">all rank prices</a>.</div>
+  </div>
+  <form id="of" class="rv" style="--i:2" data-kind="boost" novalidate>
+    <input type="hidden" name="type" id="ty" value="Rocket League rank boost">
+    <div class="two"><label>Your name<input name="name" required autocomplete="name" maxlength="60"></label><label>Your Discord ID<input name="discord" required inputmode="numeric" pattern="[0-9]{17,20}" placeholder="e.g. 123456789012345678" maxlength="20" aria-describedby="did"></label></div>
+    <p class="fine" id="did">Your Discord ID is the long number for your account, not your username. In Discord, turn on Developer Mode (Settings, Advanced), then right click your profile and choose Copy User ID. We will message you there.</p>
+    <div id="rk" class="rk">
+      <div class="two"><label>Current rank<select name="from" id="cFrom"></select></label><label>Target rank<select name="to" id="cTo"></select></label></div>
+      <div class="two"><label>Platform<select name="platform" id="plat"><option>Steam</option><option>Epic Games</option><option>PlayStation</option><option>Xbox</option><option>Nintendo Switch</option></select></label><label>Playlist<select name="playlist" id="plist"><option>Ranked 2v2 Duel/Doubles</option><option>Ranked 3v3 Standard</option><option>Ranked 1v1 Duel</option></select></label></div>
+      <label class="chk"><input type="checkbox" name="rew" id="cRew" checked><span>Include Rank Rewards (+&euro;5 for each new rank reached)</span></label>
+      <div class="total"><span>Estimated price</span><b id="cTotal">&euro;0</b></div>
+      <label class="chk"><input type="checkbox" name="consent" id="rkOk"><span>I understand that Copper will log in to and play on my account, and that it will be returned to me when the boost is finished.</span></label>
+    </div>
+    <label id="msgl">Anything else we should know? (optional)<textarea id="msg" name="msg" maxlength="500" placeholder="For example the times you are online or other details."></textarea></label>
+    <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <button class="btn" type="submit" id="sb">Send request</button>
+    <p class="fine" id="note" role="status">Sending this form shares your name, Discord ID and request with us on our private Discord server so we can reply to you.</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>&copy; <span id="y"></span> Copper, made by Cooper &amp; Pepper. All rights reserved.</span><span>Orders are handled on Discord.</span></div></footer>
+<script src="../../rank.js"></script>
+<script src="../../main.js"></script>
+</body>
+</html>
